@@ -1,9 +1,9 @@
-package questão_2;
-import java.text.DecimalFormat; //responsavél por formatar as casas decimais que queremos que seja exibidas. por ex: (0.00)
+package questÃ£o_2;
+import java.text.DecimalFormat; //responsavÃ©l por formatar as casas decimais que queremos que seja exibidas. por ex: (0.00)
 /**
- * Classe responsavel por calcular o Rendimento da poupança de acordo com as taxas Selic e TR (Taxa Referencial).
- * Variável 'auxValor' é uma auxiliar da variável 'valor', ela é responsável por armazenar o valor do rendimento ao mês.
- * Variável 'somaValor' como o nome já diz, é uma variável responsável por somar o valor do rendimento ao mês junto com a 'auxValor'.
+ * Classe responsavel por calcular o Rendimento da poupanÃ§a de acordo com as taxas Selic e TR (Taxa Referencial).
+ * VariÃ¡vel 'auxValor' Ã© uma auxiliar da variÃ¡vel 'valor', ela Ã© responsÃ¡vel por armazenar o valor do rendimento ao mÃªs.
+ * VariÃ¡vel 'somaValor' como o nome jÃ¡ diz, Ã© uma variÃ¡vel responsÃ¡vel por somar o valor do rendimento ao mÃªs junto com a 'auxValor'.
  * @author Adrian L. Silva.
  */
 public class RendimentoPoupanca {
@@ -39,14 +39,14 @@ public class RendimentoPoupanca {
 	public void setValor(float valor) {
 		this.valor = valor;
 	}
-	//Variável Auxiliar do valor.
+	//VariÃ¡vel Auxiliar do valor.
 	public float getAuxValor() {
 		return auxValor;	
 	}
 	public void setAuxValor(float auxValor) {
 		this.auxValor = auxValor;
 	}
-	//Variável "Auxiliar" para somar os valores, assim conseguindo exibir o rendimento mês a mês.
+	//VariÃ¡vel "Auxiliar" para somar os valores, assim conseguindo exibir o rendimento mÃªs a mÃªs.
 	public float getSomaValor () {
 		return somaValor;
 	}
@@ -58,44 +58,44 @@ public class RendimentoPoupanca {
 		this.qtdMeses = qtdMeses;
 	}
 	/**
-	 * Método 'calcular' é responsavel por calculcar o rendimento ao mês.
-	 * Caso a taxa selic for maior que 8.5% o método faz um conjunto de códigos, caso for menor outro conjunto de códigos.
-	 * @return método retorna o valor inicial, rendimento do mês e o valor mês a mês.
+	 * MÃ©todo 'calcular' Ã© responsavel por calculcar o rendimento ao mÃªs.
+	 * Caso a taxa selic for maior que 8.5% o mÃ©todo faz um conjunto de cÃ³digos, caso for menor outro conjunto de cÃ³digos.
+	 * @return mÃ©todo retorna o valor inicial, rendimento do mÃªs e o valor mÃªs a mÃªs.
 	 */
 	public float calcular() {
-		System.out.println("Ola! Sr(a)." + getNome() + " o valor inicial do seu investimento é: R$" + getValor() + " Reais.");
-		DecimalFormat formatador = new DecimalFormat("0.00"); //formatador de decimal. Ele serve para declarar quantas casas queremos exibir após a vírgula.
+		System.out.println("Ola! Sr(a)." + getNome() + " o valor inicial do seu investimento Ã©: R$" + getValor() + " Reais.");
+		DecimalFormat formatador = new DecimalFormat("0.00"); //formatador de decimal. Ele serve para declarar quantas casas queremos exibir apÃ³s a vÃ­rgula.
 		if (taxaSelic < 8.5f) {
 			//Taxa SELIC maior que 8.5% = valor da pessoa * a qtdMeses * taxa 0,5% + taxaRef = 0.0006.
 			valor = valor * qtdMeses * 0.005f + taxaRef;
-			auxValor = valor / qtdMeses; //auxValor recebe o resultado do rendimento do mês.
-			System.out.println("Taxa SELIC maior que 8.5% então:");
-			System.out.println("Após o rendimento de 0,5% (por mês) + TR 0,6 (por mês) é de: R$" + getAuxValor());
-			System.out.println("Rendeu aproximandamente: R$" + formatador.format(getAuxValor()) + " por mês, isso é:"); //formatador.format' é responsavél por aproximar um valor 'float'
-	        int i = 0; 
-			while (!(i++ == qtdMeses)) { //Enquanto [i] não for igual a qtsMeses faça:
+			auxValor = valor / qtdMeses; //auxValor recebe o resultado do rendimento do mÃªs.
+			System.out.println("Taxa SELIC maior que 8.5% entÃ£o:");
+			System.out.println("ApÃ³s o rendimento de 0,5% (por mÃªs) + TR 0,6 (por mÃªs) Ã© de: R$" + getAuxValor());
+			System.out.println("Rendeu aproximandamente: R$" + formatador.format(getAuxValor()) + " por mÃªs, isso Ã©:"); //formatador.format' Ã© responsavÃ©l por aproximar um valor 'float'
+	        	int i = 0; 
+			while (!(i++ == qtdMeses)) { //Enquanto [i] nÃ£o for igual a qtsMeses faÃ§a:
 				somaValor = somaValor + auxValor;
-	            System.out.printf("Mês %d: ", i);
-	            System.out.println(formatador.format(getSomaValor())); //aproximando o valor e exibindo o valor do rendimento ao mês.
+	            System.out.printf("MÃªs %d: ", i);
+	            System.out.println(formatador.format(getSomaValor())); //aproximando o valor e exibindo o valor do rendimento ao mÃªs.
 	        }
-			System.out.println("Durante o periodo de " + getQtdMeses() + " meses, renderá cerca de: R$" + formatador.format(getValor()));;
+			System.out.println("Durante o periodo de " + getQtdMeses() + " meses, renderÃ¡ cerca de: R$" + formatador.format(getValor()));;
 			System.out.println();
 			return valor;
 		} else {
-			//Taxa Selic menor que 8,5% = 70% de 8,5% = 5,95% ao ano, dividindo por 12 mesês = 0,4958% por mês.
-			//Convertendo ficamos com 70% = 0,004958 por mês.
+			//Taxa Selic menor que 8,5% = 70% de 8,5% = 5,95% ao ano, dividindo por 12 mesÃªs = 0,4958% por mÃªs.
+			//Convertendo ficamos com 70% = 0,004958 por mÃªs.
 			valor = valor * qtdMeses * 0.004958f + taxaRef;
 			auxValor = valor / qtdMeses;
-			System.out.println("Taxa SELIC menor que 8.5% então:");
-			System.out.println("Após o rendimento de 70% da taxa Selic (por mês) + TR 0,6 (por mês) é de: R$ " + getAuxValor());
-			System.out.println("Rendeu aproximandamente: R$" + formatador.format(getAuxValor()) + " por mês, isso é:");
+			System.out.println("Taxa SELIC menor que 8.5% entÃ£o:");
+			System.out.println("ApÃ³s o rendimento de 70% da taxa Selic (por mÃªs) + TR 0,6 (por mÃªs) Ã© de: R$ " + getAuxValor());
+			System.out.println("Rendeu aproximandamente: R$" + formatador.format(getAuxValor()) + " por mÃªs, isso Ã©:");
 			int i = 0;
 			while (!(i++ == qtdMeses)) {
 				somaValor = somaValor + auxValor;
-	            System.out.printf("Mês %d: ", i);
+	            System.out.printf("MÃªs %d: ", i);
 	            System.out.println(formatador.format(getSomaValor()));
 	        }
-			System.out.println("Durante o periodo de " + getQtdMeses() + " meses, renderá cerca de: R$" + formatador.format(getValor()));
+			System.out.println("Durante o periodo de " + getQtdMeses() + " meses, renderÃ¡ cerca de: R$" + formatador.format(getValor()));
 			System.out.println();
 			return valor;
 		}
